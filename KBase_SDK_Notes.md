@@ -45,10 +45,10 @@ $ mkdir $HOME/bin/
 #Generate the kb-sdk script and put it in ~/bin/kb-sdk
 $ docker run kbase/kb-sdk genscript > $ HOME/bin/kb-sdk
 $ chmod +x $HOME/bin/kb-sdk
-#Add ~/bin to your $PATH if it is not already there
-$ export PATH=$PATH:$ HOME/bin/
+#Add ~/bin to your $ PATH if it is not already there
+$ export PATH=$ PATH:$ HOME/bin/
 #You might want to put the above command in your ~/.bashrc or ~/.zshrc:
-$ echo "export PATH=\$PATH:$ HOME/bin/" >> ~/.bashrc
+$ echo "export PATH=\$ PATH:$ HOME/bin/" >> ~/.bashrc
 3.  Test the installation by running the kb-sdk help command
 $ kb-sdk help
 4.   List the kb-sdk version to ensure that the latest image is used
