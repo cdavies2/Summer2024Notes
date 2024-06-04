@@ -83,6 +83,22 @@ $ kb-sdk init --language python --user ${your_kbase_username} ${username}${modul
 
    To rename your moudle, it is best to start over with "kb-sdk init' and the new name
 ## Build the Module
+$ cd $ {username} $ {module_name}
 
+$ make (make command runs some initial code generation)
+
+## Module Highlights
+1. Base directory is called {username}{module_name}
+2. Description of the module, its version, and the authors in kbase.yml
+3. Specification file that defines inputs, output, and functions for the module {module_name}.spec
+4. A script with code for running all the apps in the module called
+
+lib/{username}{module_name}/{username}{module_name}Impl.py
+
+5.  Specifications for the user interface in the files
+
+ui/narrative/methods/run_{username}{module_name}/spec.json and
+
+ui/narrative/methods/run_{username}{module_name}/display.yaml.   
 
 
