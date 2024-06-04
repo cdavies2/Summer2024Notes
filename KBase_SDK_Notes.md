@@ -40,15 +40,15 @@ KBase module code is run using Docker, which allows you to easily install requir
 # Installation
 1. Once docker is installed, pull down the KBase SDK Image
 $ docker pull kbase/kb-sdk
-2. Add the kb-sdk as a global command by linking it in your $PATH. Place the script in a directory like ~/bin:
+2. Add the kb-sdk as a global command by linking it in your $ PATH. Place the script in a directory like ~/bin:
 $ mkdir $HOME/bin/
 #Generate the kb-sdk script and put it in ~/bin/kb-sdk
-$ docker run kbase/kb-sdk genscript > $HOME/bin/kb-sdk
+$ docker run kbase/kb-sdk genscript > $ HOME/bin/kb-sdk
 $ chmod +x $HOME/bin/kb-sdk
 #Add ~/bin to your $PATH if it is not already there
-$ export PATH=$PATH:$HOME/bin/
+$ export PATH=$PATH:$ HOME/bin/
 #You might want to put the above command in your ~/.bashrc or ~/.zshrc:
-$ echo "export PATH=\$PATH:$HOME/bin/" >> ~/.bashrc
+$ echo "export PATH=\$PATH:$ HOME/bin/" >> ~/.bashrc
 3.  Test the installation by running the kb-sdk help command
 $ kb-sdk help
 4.   List the kb-sdk version to ensure that the latest image is used
