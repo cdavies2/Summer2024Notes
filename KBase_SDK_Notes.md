@@ -39,19 +39,33 @@ When you register your new app, it is available in the dev catalog
 KBase module code is run using Docker, which allows you to easily install required system tools and dependencies, and to test your build on your own computer before registering the model with KBase
 # Installation
 1. Once docker is installed, pull down the KBase SDK Image
+
 $ docker pull kbase/kb-sdk
+
 2. Add the kb-sdk as a global command by linking it in your $ PATH. Place the script in a directory like ~/bin:
+
 $ mkdir $HOME/bin/
-#Generate the kb-sdk script and put it in ~/bin/kb-sdk
+
+Comment: Generate the kb-sdk script and put it in ~/bin/kb-sdk
+
 $ docker run kbase/kb-sdk genscript > $ HOME/bin/kb-sdk
+
 $ chmod +x $HOME/bin/kb-sdk
-#Add ~/bin to your $ PATH if it is not already there
+
+Comment: Add ~/bin to your $ PATH if it is not already there
+
 $ export PATH=$ PATH:$ HOME/bin/
-#You might want to put the above command in your ~/.bashrc or ~/.zshrc:
+
+Comment: You might want to put the above command in your ~/.bashrc or ~/.zshrc:
+
 $ echo "export PATH=\$ PATH:$ HOME/bin/" >> ~/.bashrc
-3.  Test the installation by running the kb-sdk help command
+
+4.  Test the installation by running the kb-sdk help command
+
 $ kb-sdk help
-4.   List the kb-sdk version to ensure that the latest image is used
+
+5.   List the kb-sdk version to ensure that the latest image is used
+
 $ kb-sdk version
 
 # Initialize the Module
@@ -64,6 +78,11 @@ $ kb-sdk init [--example] [--verbose] [--language language] [--user your_kbase_u
 ## Bootstrapping the HelloWorld Module
 $ kb-sdk init --language python --user ${your_kbase_username} ${username}${module_name}
 1. This creates a directory called {username}HelloWorld (with the username making your copy unique)
-2. Include the -u or
+2. Include the -u or -user option with your username to set yourself as the module owner
+3. The programming language can be set to Python, Perl, or Java
+
+   To rename your moudle, it is best to start over with "kb-sdk init' and the new name
+## Build the Module
+
 
 
