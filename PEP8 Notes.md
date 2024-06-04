@@ -73,5 +73,24 @@ Imports should be at the top of a file and grouped in this order...
 
 Absolute imports are recommended as they are more readable and usually better behaved
 
-Wildcard imports (from <module> import *) should be avoid, as they make it hard to tell which names are present in the namesoace
+Wildcard imports (from <module> import *) should be avoid, as they make it hard to tell which names are present in the namespace
+
+
+## Module Level Dunder Names
+"Dunders" (names with two leading and two trailing underscores like __author__ or __version__ must be before any import statements except from__future__ imports. Future-imports must appear before any other code except dosctrings.
+
+# String Quotes
+When a string uses single or double quote characters, use the one not used to create the string variable to avoid backslashes and improve readability.
+
+# Whitespace Pet Peeves
+Avoid extra whitsepace immediately inside parenthesis (EX: ham[  1  ]), between a comma and parenthesis (EX: bar=(0, )), and immediately before a comma, semicolon, or colon (EX: if x==4 : print(x , y) ; x , y = y , x)
+A colon in a slice should have equal amounts on each side (EX: ham[1:9])
+Always surround these binary operators with a single space on either side:
+1. Assignment (=,EX: i = i + 1)
+2. Augmented assignment(+=, -=)
+3. Comparisons (==, <, >, in, is)
+4. Booleans (and, or, not)
+
+Compound statements (multiple statements on the same line) are generally discouraged
+
 
