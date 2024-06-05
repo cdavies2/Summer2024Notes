@@ -25,4 +25,11 @@
 * Run kb-sdk test and if everything works you'll see the docker container boot up, the run_{username}HelloWorld method will get called, and you'll see printed output, which includes these two lines:
 * Input parameter Hello World!
 * report_name report_675e061a-2fce-47aa-ac85-67e3ec975776
+
+
+
+# ContigFilter Example
+* The ContigFilter example adds more features of the SDK (since in practice, apps must interact with the workspace/narrative, database objects, and create reports from output)
+  
+## Step 1: The App Design Checklist
 * 
