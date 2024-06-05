@@ -77,19 +77,19 @@
      
  * In the section under behavior, change run_{username}ContigFilter to run_{username}ContigFilter_max (name is the name of the module, method is the name of the app)
  *  "service-mapping": {
-        "url": "",
-        "name":"{username}ContigFilter",
-        "method": "run_{username}ContigFilter_max"
-    }
+      *  "url": "",
+      *  "name":"{username}ContigFilter",
+      *  "method": "run_{username}ContigFilter_max"
+ *   }
 *  Next, add max_length to the input_mapping
 *  {
-        "input_parameter": "min_length",
-        "target_property": "min_length"
-    },
-    {
-        "input_parameter": "max_length",
-        "target_property": "max_length"
-    }
+      *  "input_parameter": "min_length",
+      *  "target_property": "min_length"
+ * },
+ * {
+      *  "input_parameter": "max_length",
+      *  "target_property": "max_length"
+ * }
 * Add commas after the min_length parameters to maintain valid JSON syntax
 * When you make changes to UI files, validate the syntax of your changes by running:
 * $ kb-sdk validate
@@ -105,8 +105,22 @@
             All contigs below this length will be removed
 * Edit the file and add the max_length parameter, which looks like this...
 * max_length:
-    ui-name: |
-        Maximum contig length
-    short-hint: |
-        Maximum required length of every contig in the assembly
+    * ui-name: |
+    *    Maximum contig length
+   * short-hint: |
+     *   Maximum required length of every contig in the assembly
 * Finally, run kb-sdk validate again and it should pass!
+
+
+# Implement Code
+* The actual code for your app lives in the Python package under lib/{username}ContigFilter
+* The entry point, where your code is initially called, lives in lib/{username}ContigFilter/{username}ContigFilterImpl.py. This is where you edit your own Python code
+* In a real-world app, you may want to split up your code into several Python modules and packages.
+  
+## Receive Parameters
+* Open method_nameImpl.py and find the run_{username}ContigFilter_max method, which should have some auto-generated boilerplate code and docstrings. Edit code between the comments #BEGIN run_{username}ContigFilter_max and #END run_{username}ContigFilter_max
+* Betweem the comments, add a print statement to let us see what's getting passed into our method
+* EX: print(params['min_length'], params['max_length'], params['assembly_ref'])
+
+## Initialize a Test
+* Python automatically runs all methods that start with the name test, so temporarily rename all tests for the old app so they don't run until we are done working on the new app
