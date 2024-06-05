@@ -124,3 +124,11 @@
 
 ## Initialize a Test
 * Python automatically runs all methods that start with the name test, so temporarily rename all tests for the old app so they don't run until we are done working on the new app
+  * EX: change def test_run_{username}ContigFilter_ok(self) to def my_test_run_{username}ContigFilter_ok(self)
+* Now add your own test for the new app method at the bottom of the test class and call it the test_run_{username}ConfigFilter_max(self)
+* We need to provide three parameters to our function
+  1. Workspace Name
+  2. Assembly Reference String
+  3. Min length integer
+ * Run kb-sdk test and if everything works, the docker container will boot up, the run_{username}ContigFilter_max method will be called and output will print
+ * 
