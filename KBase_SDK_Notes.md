@@ -101,4 +101,19 @@ ui/narrative/methods/run_{username}{module_name}/spec.json and
 
 ui/narrative/methods/run_{username}{module_name}/display.yaml.   
 
+## Create a Github Repo
+First, commit your codebase into a local git repository. Then, git add all files created by kb-sdk and commit. git commit -m 'Initial commit' writes a message describing the first commit
 
+* $ cd $ {username}$ {module_name} #only needed if not already in the correct location
+* $ git init
+* $ git add .
+* $ git commit -m 'Initial commit'
+
+Next, sync your local codebase to a repository you created on github (which is initially empty)
+* $ git remote add origin https://github.com/${github_user_name}/${username}${module_name}.git
+
+## Set Up Your Developer Credentials
+This can be done any time after the first make of a module
+During development a dev token is generated
+Go to  https://narrative.kbase.us/#auth2/account, and click Developer Tokens to generate a new token
+Copy and paste the new token into test_local/test.cfg in the value for test_token
