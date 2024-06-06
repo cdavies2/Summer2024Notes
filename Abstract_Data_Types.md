@@ -28,3 +28,26 @@
 * A common style of defining ADTs writes operations as if one instance exists during the execution of the algorithm and all operations are applied to that instance (EX: push(x) may operate on the only existing stack)
 * You can also exclude partial aliasing with other instances (stating that changing a field of one record variable does not affect any other records)
 
+# Examples
+## Abstract Variable
+* The simplest non-trivial ADT, with semantics of an imperative variable. It has two operations, fetch(v), which returns the current value in location v, and store(v,x) stores the value x in location V.
+* Names are always distinct; storing a value into variable U has no effect on the state of a distinct variable v.
+* Fetching before storing can be disallowed, defined to have a certain result, or left unspecified.
+
+## Abstract Stack
+* Last-in-first-out structure. It has three key operations..
+  1. push-inserts a data item onto the stack
+  2. pop-removes a data item from the stack
+  3. peek/top-accesses a data item on top of the stack without removal
+  * A complete abstract stack definition includes also a Boolean-valued function empty(s) and create() that returns an initial stack instance.
+
+## Boom Hierarchy
+* Refers to the binary tree, list, bag, and set abstract data types. All can be declared by three operations...
+  1. null-constructs empty container
+  2. single-constructs a container from a single element
+  3. append-combines two containers of the same type
+* The complete specification of the four data types can then be given by adding the following rules over these operations...
+  1. null is the left and right neutral for a tree
+  2. lists add that append is associative
+  3. bags add commutativity (append(B,A)=append(A,B))
+  4. sets are also idempotent
