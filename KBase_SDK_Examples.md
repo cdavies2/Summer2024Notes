@@ -131,4 +131,22 @@
   2. Assembly Reference String
   3. Min length integer
  * Run kb-sdk test and if everything works, the docker container will boot up, the run_{username}ContigFilter_max method will be called and output will print
- * 
+
+## Set the Callback URL and Scratch Path
+* The callback URL points to a server that is used to spin up other SDK apps that we'll need to use in our own app.
+* EX: When we use AssemblyUtil, our app makes a request to the callback server, which spins up a separate docker container that runs AssemblyUtil.
+* Scratch is a special directory that we can use to store files used to run an app. The directory is also accessible by other apps, like Assembly Util.
+* Remember, Scratch is temporary and its files vanish when your app stops running. To generate persistent data, use Reports
+* This code was added to the _init__ method to enable callbacks/scratch directory
+* #BEGIN_CONSTRUCTOR
+* self.callback_url = os.environ['SDK_CALLBACK_URL']
+* self.shared_folder = config['scratch']
+* #END_CONSTRUCTOR
+* AssemblyUtil can convert input data to a FASTA file that the app can access
+* This code can be used to install AssemblyUtil
+   * kb-sdk install AssemblyUtil
+ * Don't forget to git add new dependencies to your source control when you run kb-sdk install
+ * In your {username}ContigFilterImpl.py file, import the module with:
+ * from installed_clients.AssemblyUtilClient import AssemblyUtil
+
+## Add Some Basic Validations
