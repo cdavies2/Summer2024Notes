@@ -51,4 +51,19 @@
   2. lists add that append is associative
   3. bags add commutativity (append(B,A)=append(A,B))
   4. sets are also idempotent
-* Access to the data can be specified by pattern-matching over the three operators
+* Access to the data can be specified by pattern-matching over the three operators, EX: A member function for these containers by:
+    * member(X, single(Y))=eq(X,Y)
+    * member(X, null)=false
+    * member(X, append(A,B))=or(member(X,A), member(X,B))
+
+## Common ADTs
+* Collection
+* Container
+* List
+* String
+* Set
+* Graph
+* Tree
+* Stack
+* Queue
+* Double-ended priority queue
