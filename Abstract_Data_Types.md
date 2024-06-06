@@ -51,3 +51,4 @@
   2. lists add that append is associative
   3. bags add commutativity (append(B,A)=append(A,B))
   4. sets are also idempotent
+* Access to the data can be specified by pattern-matching over the three operators
