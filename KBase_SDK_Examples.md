@@ -155,4 +155,64 @@
 * We can also add tests to make sure we raise ValueErrors for invalid parameters.
 
 ## Download the FASTA file
-* In the method_nameImpl.py file, inside the run_{username}ContigFilter_max
+* In the method_nameImpl.py file, inside the run_{username}ContigFilter_max, initalize the utility and use it to download the assembly_ref.
+* We initialize AssemblyUtil by passing self.callback_url
+* The get_assembly_as_fasta method downloads a file from a workspace ref
+
+## Filter Out Contigs Based on Length
+* The biopython package, included in the SDK build, has a module called SeqIO that can help us read and filter genome sequence data.
+* Inside run_{username}ContigFilter_max, you can enter code to filter out contigs less than the given min_length, or greater than the max_length.
+* # Inside {username}ContigFilterImpl#run_{username}ContigFilter_max, after you have fetched the fasta file:
+# Parse the downloaded file in FASTA format
+* parsed_assembly = SeqIO.parse(fasta_file['path'], 'fasta')
+* min_length = params['min_length']
+* max_length = params['max_length']
+
+* #Keep a list of contigs greater than min_length
+* good_contigs = []
+* #total contigs regardless of length
+* n_total = 0
+* #total contigs over the min_length
+* n_remaining = 0
+* for record in parsed_assembly:
+*    n_total += 1
+*    if len(record.seq) >= min_length and len(record.seq) <= max_length:
+*        good_contigs.append(record)
+*        n_remaining += 1
+* output = {
+*    'n_total': n_total,
+*    'n_remaining': n_remaining
+* }
+
+## Add Real Tests
+* If you return to test/{username}ContigFilterImp1_server_test.py and add tests for the functionality we added above
+* Set min_length to a value that filters out some contigs but not others. For example, our FASTA only has 2 sequences of lengths 4,969,811 and 161,613. An in between minimum could be 100,000 and a maximum could be 400,000.
+
+## Output the Filtered Assembly
+* This file can save and upload code
+* workspace_name = params['workspace_name']
+* filtered_path = os.path.join(self.shared_folder, 'filtered.fasta')
+* SeqIO.write(good_contigs, filtered_path, 'fasta')
+* #Upload the filtered data to the workspace
+* new_ref = assembly_util.save_assembly_from_fasta({
+  * 'file': {'path': filtered_path},
+  * 'workspace_name': workspace_name,
+  * 'assembly_name': fasta_file['assembly_name']
+* })
+* output = {
+  * 'n_total': n_total,
+  * 'n_remaining': n_remaining,
+  * 'filtered_assembly_ref': new_ref
+* }
+* #END run_{username}ContigFilter_max
+* You can add a simple assertion into your test_run_{username}ContigFilter_max methof to check for the filtered_assembly_red. Something like...
+ * self.assertTrue(len(result[0]['filtered_assembly_ref']))
+
+ ## Build a Report Object
+ * In order to output data into the UI inside a narrative, your app needs to build and return a KBaseReport
+ * Import the report module between the #BEGIN_HEADER and #END_HEADER section of your {username}ContigFilterImp1.py
+ * Add the report initialization code insider your run_{username}ContigFilter_max method
+ * Add a couple assertions in the test_run_{username}ContigFilter_max method inside test/{username}ContigFilterImpl_server_test.py to check for the report name and ref.
+  * self.assertTrue(len(result[0]['report_name']))
+  * self.assertTrue(len(result[0]['report_ref']))
+
