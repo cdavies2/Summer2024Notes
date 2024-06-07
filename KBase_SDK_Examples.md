@@ -150,3 +150,9 @@
  * from installed_clients.AssemblyUtilClient import AssemblyUtil
 
 ## Add Some Basic Validations
+* Make sure your user passes in a workspace, an assembly reference, a minimum length greater than zero, and a maximum length greater than zero.
+* You can add another test for max_length being greater than the min_length.
+* We can also add tests to make sure we raise ValueErrors for invalid parameters.
+
+## Download the FASTA file
+* In the method_nameImpl.py file, inside the run_{username}ContigFilter_max
