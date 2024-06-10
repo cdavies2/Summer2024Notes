@@ -44,4 +44,23 @@
 * It is the process by which genetic information from RNA gets transcribed into new DNA
 
 ## RNA Replication
-* 
+* RNA replication is the copying of one RNA to another. Many viruses replicate this way. The enzymes that copy RNA to new RNA are also found in many eukaryotes when they are involved in RNA silencing.
+* RNA editing, in which in RNA sequence is altered by a complex of proteins and a "guide RNA" could also be seen as an RNA-to-RNA transfer.
+
+## Direct Translation from DNA to Protein
+* Direct translation from DNA to protein has been demonstrated in a cell-free system (in a test tube) using ribosome extracts from E. coli. These cell fragments could synthesize proteins from single-stranded DNA templates isolated from other organisms, but it was unclear whether this mechanism of translation corresponded specifically to the genetic code.
+
+# Transfers of Information Not Explicitly Covered in the Theory
+## Post-Translational Modification
+* After protein amino acid sequences have been translated from nucleic acid chains, they can be edited by appropriate enzymes. There are not many clear examples where this has much to do with the central dogma
+
+## Inteins
+* An intein is a parasitic segment of a protein that can excise itself from the chain of amino acids as they emerge from the ribsome and rejoin the remaining portions with a peptide bond in such a manner that the main protein "backbone" doesn't fall apart.
+* This is an example of protein directly editing DNA sequence, as well as increasing the sequence's heritable propagation.
+
+## Methylation
+* Variation in methylation states of DNA can alter gene expression levels significantly. Methylation variation usually occurs through the action of DNA methylases. When the change is heritable, it's considered epigenetic, and when it's not heritable, it would be a somatic epitype.
+
+## Prions
+* Prions are proteins of particular amino acid sequences in particular conformations. They propagate themselves in host celss by making conformational changes in other molecules of protein with the same amino acid sequence, but with a different conformation that is functionally important or detrimental to the organism.
+* Some argue that prion-mediated inheritance violates the central dogma of molecular biology, but others argue that it doesn't, because the prion hypothesis doesn't claim that proteins replicate, but rather that there's a source of information within protein molecules that contributes to their biological function, and this information can be passed on to other molecules.
