@@ -52,3 +52,50 @@
 14. Data Cell-share details and describe individual data objects present within the Narrative.
 15. App Cell-display app inputs and outputs, text and commentary, and code cells for writing custom scripts
 16. Markdown and Code Cell Buttons-click to add these types of cells to the Narrative
+
+# Narrative Navigator
+* There are five tabs for exploring and locating existing Narratives: My Narratives, Shared with Me, Tutorials, and Public.
+* The most recently updated Narratives appear first, but can be searched or sorted using the dropdown menu - Recently updated, Least recently updated, Recently created, Oldest, Lexographic (A-Z), Reverse Lexicographic (Z-A).
+* A list of available Narratives will be on the left panel and information on the selected Narrative on the right panel. Here you can see an overview of the Data within the Narrative and a Preview.
+ * Icons under a Narrative name indicate which apps the Narrative includes, how many markdown and code cells it contains, the number of times the Narrative has been shared, whether there are any running jobs, total running time for all completed jobs, and more.
+* Click on the selected Narrative name to open it
+* The Gear icon next to the Narrative title allows you to manage sharing, copy a narrative, rename, link to an organization, or delete.
+## Where Can I Go From Here?
+* Navigator-takes you to your accessible Narratives
+* Orgs-takes you to a list of Organizations within KBase ("My Orgs" shows the Organizations you belong to as a member)
+* Catalog-you can use the App Catalog to browse, search for, and see specifications of KBase apps
+* Search-allows you to search for data present in your own Narratives, those shared with you, those made public by their owners; you can also search for reads and assemblies contained in the Joint Genome Institute (JGI) Genomes Online Database (GOLD) and add them to your Narratives
+* Jobs-allows you to view apps that have you've run recently, see their progress, search for specific runs, and more.
+* Account-you can edit your profile information in the account manager, and get to your Profile Page, which gives an overview of your Narratives and Collaborators
+* Feeds-takes you to the Notification Feeds page to view notifications from KBase.
+
+# Explore Data
+## The Data Browser
+* The Data Browser slide-out is accessed throught the right-facing arrow in the menu or the red "Add Data" button in the Data Pane.
+ * My Data-data you've already loaded or analyzed in another Narrative
+ * Shared with Me-data included in Narratives that have been shared with you
+ * Public-data in KBase that's accessible to everyone
+ * Example-example datasets that can be used as inputs to apps and methods
+ * Import-mechanism allowing you to import your own data to your Narrative.
+* If you hover over a data object in the Data Browser panel, three icons appear
+   1. "<Add"-adds the data object to your Narrative
+   2. Binoculars Icon-opens a Data Landing page
+   3. Graph-like Icon-opens a Provenance page
+ ## Information in the Data Pane
+ * The Data Pane shows all the data that you've added to your Narrative. You can access more details about a particular data object by hovering over the object and clicking the "..." that appears in the right-hand side.
+ * Page with three lines and folded corner-the "View Associated Report" button, opens the Data View report page for the data object.
+ * Counter clockwise clock-the "View History to Revert Changes" icon, which allows you to see and revert to previous versions of the data.
+ * Download icon-lets you download a data object to your local computer in JSON format
+ * A-"Rename data", lets you rename your data object.
+ * Trash can-delete data from your Narrative
+
+# Data Viewers
+* They can be accessed two ways from the Data Panel
+  1. Click the name of a data object, and its viewer will be added to your Narrative
+  2. Drag the object from the Data Panel and drop it into the main part of your Narrative
+  * You can sort table entries by clicking on a column header to sort by that field, and clicking the same header again will reverse the sort order. You can sort by more than one column at a time by clicking one column header and shift-clicking other column headers.
+
+# Data Landing and Provenance Pages
+* Data Landing pages provide both known and contextual information about a data object, allowing users to examine various particulars about data, and compare it to other data objects. You will see a data object summary, a genome overview panel that lists information about the genome (biological domain, DNA length, etc), publications that mention this genome, taxonomic lineage, a species tree, functional categories, etc
+* Provenance Pages-one way to facilitate reproducibility and transparency of scientific results. This page records and illustrates how data is derived and modified in KBase, including how it entered the system, whether it was produced through analysis of other objects, who generated the data, and when.
+
