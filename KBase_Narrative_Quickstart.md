@@ -155,3 +155,17 @@
    1. Configure
    2. Info
    3. Job Status and Result
+  ## Fill In Parameters
+  * After you add an app to your Narrative, the required parameters must be filled in before you can run it. For most apps, you need to select the input data object(s)
+  * A red bar to the right of a field indicates that it is a required field and you have not yet entered a valid value in it. Once you have filed or corrected the field, the indicator should disappear.
+  * Some app fields are "smart" and know which data in your Narrative is valid for that field. These "smart" fields have a pulldown list of data objects that you can choose from. Some fields are also required, but they will be pre-filled with default values. Some apps also have optional "advanced options" that you can reveal by clicking on the "advanced options" link at the bottom of the cell.
+## Run the App
+* When you've filled in the required fields, the Run button will be enabled. The analysis will continue running even if you don't have the narrative open
+* When an app finishes running, you will see a summary in the Results tab, as well as an output cell below your app cell. Also, if the analysis generates a new data object, that object will be added to your Data Panel.
+* Different apps create different types of output cells when they run, depending on which type of data object is output by the app.
+## Conduct Further Analyses
+* Once you have reviewed your results, you can use your newly generated data in additional analysis steps. Remember, you can click on the data object in the Data Panel to see which KBase Apps work with that data type.
+## Re-Run Apps with the Same or Different Parameters
+* App input cells that have already been run have a "Reset" button that allows you to redo the analysis, with the option to change any of the parameter settings (including the input data) before rerunning. Rerunning an App will overwrite the information in the App cells, but will not overwrite any data objects in your Narrative unless you use the same output object name again
+## Report Errors
+* If a job fails, you will see an error message in the output cell and/or in the Result tab. If you need help, contact KBase, and include the contents of the Job Status tab and the URL of your narrative to help them debug the problem.
