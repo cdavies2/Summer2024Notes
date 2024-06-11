@@ -169,3 +169,21 @@
 * App input cells that have already been run have a "Reset" button that allows you to redo the analysis, with the option to change any of the parameter settings (including the input data) before rerunning. Rerunning an App will overwrite the information in the App cells, but will not overwrite any data objects in your Narrative unless you use the same output object name again
 ## Report Errors
 * If a job fails, you will see an error message in the output cell and/or in the Result tab. If you need help, contact KBase, and include the contents of the Job Status tab and the URL of your narrative to help them debug the problem.
+
+# Job Browser
+* In addition to viewing job status within a Narrative, the Job Browser allows you to monitor and manage your jobs across Narratives. By default, it shows all jobs submitted within the Previous Week (you can change the timeframe)
+* You can filter jobs by Created, Queued, Running, Completed, Error, and Canceled
+* The results display basic information for jobs like the Narrative they are located, App, date submitted, Run time, Server, and if the job was Canceled.
+ ## Job Status
+ * The overall Job status is stated in the Status column. To inspect the Job Log, click the i icon to open the table to see the contents of the log.
+ ## Job Log
+ * The Job ID and worker node are easily located and the log can be scrolled through within the pop-out. Job Logs can be downloaded in CSV, TSV, JSON, and TEXT formats
+
+  # Revise Your Narrative
+  * Your Narratives are shown in the Narratives tab in reverse chronological order, with the most recently updated Narrative first.
+  * KBase stores a history of everything you've done to your Narrative, so you are able to revert changes and go back to an earlier version. When you hover your cursor over one of your Narratives in the Narratives panel, three icons appear, the first of which lets you access prior saved versions of the Narrative.
+  * You can add formatted text to your Narrative (to explain what you're doing) via Markdown Cells. To edit a Markdown cell, double-click it to enter edit mode, and when you're done, press Shift-Return to exit the cell.
+  * The cell menu can be opened by clicking the "..." icon in the upper right corner of a cell.
+  * To rename a Narrative, click on its name at the top of the Narrative window. To delete a Narrative, click the trash can (but be careful, there's no way to get your deleted Narrative back)
+  * Save your work frequently using the Save button at the top right of the screen.
+*
