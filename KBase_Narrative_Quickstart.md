@@ -99,3 +99,48 @@
 * Data Landing pages provide both known and contextual information about a data object, allowing users to examine various particulars about data, and compare it to other data objects. You will see a data object summary, a genome overview panel that lists information about the genome (biological domain, DNA length, etc), publications that mention this genome, taxonomic lineage, a species tree, functional categories, etc
 * Provenance Pages-one way to facilitate reproducibility and transparency of scientific results. This page records and illustrates how data is derived and modified in KBase, including how it entered the system, whether it was produced through analysis of other objects, who generated the data, and when.
 
+## Add Data to Your Narrative
+* The Data Panel in a Narrative shows the data objects that are currently available in that particular Narrative.
+* Click the "Add Data", "+", or top right arrow buttons to access the Data Browser slide-out
+* The Example tab in the browser shows datasets that have been pre-loaded for use with particular apps (handy for trying out the Narrative Interface)
+* The Import tab allows you to upload your own datasets for analysis.
+
+## Data Available in KBase
+* Hovering your cursor over a data object gives you options, allowing you to add that object to the Narrative or find out more about it.
+* The icon to the left of each data object represents its data type.
+* The blue "<Add" button next toeach icon lets you add the data object to your Narrative
+
+## Uploading Data from External Sources
+* The Import tab lets you drag and drop data from your computer into your Staging Area to import into your Narrative, where you can then analyze it using KBase's analysis apps. Getting data from your computer to the KBase Narrative takes three steps...
+  1. Drag and drop the data file(s) from your computer to the new Import tab to upload them to your Staging Area (private, temporary holding place for uploaded data files)
+  2. Choose a format for importing data from your Staging Area into your Narrative
+  3. Run the Import app that is created.
+
+ ## Drag and Drop Data Files Into your Staging Area
+ * Find the file(s) you want to import into your KBase account, and drag them into the drop zone (dotted line rectangle). You could also click the upload area to open a file chooser and select a file from your computer to upload.
+ * By default, files are sorted by age, with the most recent at the top. To sort by other fields, like name or size, click a column header.
+ * Files in the Staging Area are automatically removed after 90 days, but Data Objects imported into a Narrative will exist indefinitely.
+
+## Transferring Data from a Globus Endpoint
+* Globus is a data manageemnt and file transfer system that can facilitate bulk transfer of data between two endpoints. This requires a Globus account.
+
+## Uploading Data from a URL
+* Clicking the "Upload with URL" button adds the "Upload File to Staging from Web" App to your Narrative. There are also several apps that import specific file types (like SRA files) directly to your Narrative, bypassing your Staging Area.
+
+## Importing Files from the Staging Area to the KBase Narrative
+* To import a file from your Staging Area, choose a format (data type) from the pulldown menu to the right of the file's age. When you click the import icon, an Import App cell for each data type or a Bulk Import App cell will be created in your Narrative, with the appropriate parameters filled in.
+* If import is successful, you can see the new data object in your Data Panel.
+* Sometimes an import doesn’t work. One of the most common causes of failure is attempting to import a file that’s the wrong data type, or not the expected format for that data type. If the importer objected to something in your file, check the Data Upload/Download guide or contact the KBase help board.
+
+## Bulk Import for Multiple Files
+* Multiple files can be imported together in a single Import App as part of the bulk import feature. When you click multiple files and use "import selected", there will be a new cell type which contains a tab for each different file type you selected from the staging area. You fill out the same parameters for each file type by clicking the file type in the "Data Types" column on the left; these are the same parameters as single imports.
+* Supported file types include:
+  * Assembly - FASTA
+  * SRA Reads
+  * FASTQ Reads Interleaved - FASTQ Interleaved reads
+  * FASTQ Reads Noninterleaved - FASTQ paired-end reads or FASTQ single-end reads library
+  * GenBank Genome - GenBank
+  * GFF Metagenome - FASTA and GFF3
+
+ # Browse KBase Analysis Tools
+ *
