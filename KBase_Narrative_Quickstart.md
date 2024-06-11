@@ -143,4 +143,15 @@
   * GFF Metagenome - FASTA and GFF3
 
  # Browse KBase Analysis Tools
- *
+ * Apps in the Apps Panel are grouped by category. Click the arrow to the left of a category name to see individual apps in that category.
+ * You can browse KBase Apps by
+   1. Scrolling through the list in the apps panel
+   2. Searching for an app by name
+   3. Using the App Catalog (click the right arrow in the top right corner of the Apps Panel to open it) to further explore, filter, and designate apps as favorites.
+
+ # Analyze Data Using KBase Apps
+ * To add a KBase analysis app, find the app of interest and click its name or the icon to the left of the app name. A box (called a cell) containing the chosen app will appear in the main Narrative panel.
+ * App Cells have three tabs
+   1. Configure
+   2. Info
+   3. Job Status and Result
