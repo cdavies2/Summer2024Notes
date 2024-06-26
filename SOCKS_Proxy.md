@@ -12,8 +12,8 @@
 
 # Protocol
 * A typical SOCKS4 connection request looks like this
-                    VER      CMD      DSTPORT      DSTIP      ID
-  Byte Count        1        1        2            4          Variable
+                         VER      CMD      DSTPORT      DSTIP      ID
+       Byte Count        1        1        2            4          Variable
 *  VER- SOCKS version number, 0x04 for this version
 *  CMD-command code
     * 0x01=establish a TCP/IP stream connection
@@ -23,8 +23,8 @@
 * ID-the user ID string, variable length, null-terminated
 
   ## Response Packet from Server
-                  VN        REP      DSTPORT     DSTIP
-  Byte Count      1        1        2            4
+                        VN        REP      DSTPORT     DSTIP
+        Byte Count      1        1        2            4
 *   VN-reply version, null byte
 *   REP-reply code
 *   DSTPORT-destination port, meaningful if granted in BIND, otherwise ignore
@@ -44,8 +44,8 @@
     * Client sends a connection request similar to SOCKS4
     * Server responds similar to SOCKS4
 ## Client Greeting
-                  VER        NAUTH    AUTH
-  Byte Count      1          1        Variable
+                    VER        NAUTH    AUTH
+     Byte Count      1          1        Variable
 *   Ver-SOCKS version (0x05)
 *   NAUTH-number of authentication methods supported, uint8
 *   AUTH-Authentication methods, which are numbered as follows:
