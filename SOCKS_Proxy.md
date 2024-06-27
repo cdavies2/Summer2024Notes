@@ -49,6 +49,84 @@
 *   Ver-SOCKS version (0x05)
 *   NAUTH-number of authentication methods supported, uint8
 *   AUTH-Authentication methods, which are numbered as follows:
-    *   
-# Software
+    *   0x00: No authentication
+    *   0x01: GSSAPI (used to allow programs to access security services)
+    *   0x02: Username/password
+    *   0x03-0x7f: methods assigned by IANA
+      *   0x03: Challenge-Handshake Authentication Protocol
+      *   0x04: Unassigned
+      *   0x05: Challenge-Response Authentication Method
+      *   0x06: Secure Sockets Layer
+      *   0x07: NDS Authentication
+      *   0x08: Multi-Authentication Framework
+      *   0x09: JSON Parameter Block
+      *   0x0A-0x7F: Unassigned
+    * 0x80-0xFE: Methods reserved for private use
+ ## Server Choice
+                     VER        CAUTH
+     Byte Count      1          1
+    * VER- SOCKS version (0x05)
+    * CAUTH-chosen authentication method, or 0xFF if no acceptable methods were offered
+ ## Client Authentication Request, 0x02
+                         VER      IDLEN    ID              PWLEN      PW
+       Byte Count        1        1        (1-255)         4          (1-255)
+ * VER-0x01 for current version of username/password authentication
+ * IDLEN, ID-username length, uint8, username as bytestring
+ * PWLEN, PW-password length, uint8, password as bytestring
+## Server Response, 0x02
+                     VER        STATUS
+     Byte Count      1          1
+ * VER-0x01 for current version of username/password authentication
+ * STATUS-0x00 success, otherwise failure, connection must be closed
+ ## Client Connection Request
+                         VER      CMD      RSV      DSTADDR    DSTPORT
+       Byte Count        1        1        1        Variable   2
+ * VER-SOCKS version (0x05)
+ * CMD-command code:
+   * 0x01: establish a TCP/IP stream connection
+   * 0x02: establish a TCP/IP port binding
+   * 0x03: associate a UDP port
+ * RSV-reserved, must be 0x00
+ * DSTADDR-destination address, see the address structure above
+ * DSTPORT-port number in a network byte order
+## Response Packet from Server
+                         VER      STATUS   RSV      BNDADDR    BNDPORT
+       Byte Count        1        1        1        Variable   2
+ * VER-SOCKS version (0x05)
+ * STATUS-status code
+   * 0x00: request granted
+   * 0x01: general failure
+   * 0x02: connection not allowed by ruleset
+   * 0x03: network unreachable
+   * 0x04: host unreachable
+   * 0x05: connection refused by destination host
+   * 0x06: TTL expired
+   * 0x07: command not supported/protocol error
+   * 0x08: address type not supported
+ *  RSV-reserved, must be 0x00
+ *  BNDADDR-server bound address in the "SOCKS5 address" format
+ *  BNDPORT-served bound port number in a network byte order
+ *  A convention from cURL exists to label the domain name variant of SOCKS5 "socks5h", and the other simply "socks5"
+# Software 
 ## Servers
+* Sun Java System Web Proxy Server-caching proxy server running on Solaris, Linux and Windows servers that support HTTPS, NSAPI I/O filters, dynamic reconfiguration, SOCKSv5 and reverse proxy
+* WinGate-multi protocol proxy server and SOCKS server for Microsoft Windows which supports SOCKS4 and SOCKS5. It also supports handing over SOCKS connections to the HTTP proxy, so can cache and scan HTTP over SOCKS.
+* Dante-circuit level SOCKS server that can be used to provide convenient and secure network connectivity,requiring only the host Dante runs on to have external network connectivity.
+* Socksgate5-application-SOCKS firewall with inspection feature on Layer 7 of the OSI model, the Application Layer. Because packets are inspected at 7 OSI Level the application-SOCKS firewall may search for protocol non-compliance and blocking specified content.
+* HevSocks5Server-high performance and low-overhead SOCKS server for Unix (Linux/BSD/ macOS). It supports standard TCP-CONNECT and UDP-ASSOCIATE methods and multiple username/password authentication.
+* OpenSSH-allows dynamic creation of tunnles, specified via a subset of the SOCKS protocol, supporting the CONNECT command.
+* PuTTY-Win32 SSH client that supports local creation of SOCKS (dynamic) tunnels through remote SSH servers.
+* ShimmerCat-web server that uses SOCKS5 to simulate an internal network, allowing web developers to test their local sites without modifying their /etc/hosts file
+* Tor-system intended to enable online anonymity. Tor offers a TCP-only SOCKS server interface to its clients.
+## Clients
+* Client software must have native SOCKS support in order to connect through SOCKS
+### Browser
+* Chrome: support SOCKS4, SOCKS4a, and SOCKS5
+* FireFox: support SOCKS4, SOCKS4a, and SOCKS5
+* Internet Explorer and EdgeHTML-based Microsoft Edge: support SOCKS4 only
+* Chromium-based Microsoft Edge: support SOCKS4, SOCKS4a and SOCKS5.
+### Proxies
+* Win2Socks-enables applications to access the network through SOCKS5, HTTPS or Shadowsocks
+* proxychains-a Unix program that forces TCP traffic through SOCKS or HTTP proxies on (dynamically-linked) programs it launches. Works on various Unix-like systems.
+* Privoxy-non caching SOCKS-to-HTTP proxy
+* Tinyproxy-a light weight HTTP/HTTPS proxy daemon for POSIX operating systems.
