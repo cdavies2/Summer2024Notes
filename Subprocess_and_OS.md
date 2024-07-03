@@ -67,3 +67,12 @@
 *   Popen.kill()-kills the child
 *   Popen.args-the args argument as it was passed to Popen
 *   Popen.stdin/Popen.stdout/Popen.stderr-if the argument was PIPE, this attribute is a writeable stream object as returned by open(). If the text or universal_newlines argument was True, the stream is a text stream, otherwise it's a byte stream.
+
+# OS
+* Provides a portable way of using operating system dependent functionality.
+* os.name-the name of the operating system dependent module imported. The following names have currently been registered: 'Posix', 'nt', 'java'.
+## Process Parameters
+* os.environ-a mapping object where keys and values are strings that represent the process environment. environ['HOME'] is the pathname of your home directory, for instance.
+   * This mapping is captured the first time the os module is imported, typically during Python startup. This mapping may be used to modify or query the environment.
+ * os.getenv(key, default=None)-return the value of the environment variable key as a string if it exists, or default if it doesn't (Availability: Unix, Windows).
+ * os.getcwd()-returns a string representing the current working directory.
