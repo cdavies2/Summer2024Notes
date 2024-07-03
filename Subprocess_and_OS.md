@@ -76,3 +76,13 @@
    * This mapping is captured the first time the os module is imported, typically during Python startup. This mapping may be used to modify or query the environment.
  * os.getenv(key, default=None)-return the value of the environment variable key as a string if it exists, or default if it doesn't (Availability: Unix, Windows).
  * os.getcwd()-returns a string representing the current working directory.
+## Pathname Manipulations
+* os.path.abspath(path)-returns a normalized absolutized version of the pathname path
+* os.path.dirname(path)-return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().
+* os.path.exists(path)-returns True if path refers to an existing path or an open file descriptor. Returns False for broken symbolic links.
+* os.path.isabs(path)-return True if path is an absolute pathname (on Unix, it begins with a slash, on Windows it begins with a backslash after chopping off a potential drive letter).
+* os.path.isfile(path)-return True is path is an existing regular file.
+* os.path.islink(path)-return True if path refers to an existing directory entry that is a symbolic link. Always False if symbolix links aren't supported by the Python runtime.
+* os.path.join(path, *paths)-join one or more paths intelligently. The return value is the concatenation of path and all members of *paths, with exactly one directory separator following each non-empty part, except the last. The result will only end in a separator if the last part is either empty or ends in a separator.
+  * If a segment is an absolute path, then all previous segments are ignored and joining continues from the absolute path segment.
+  * On Windows, the drive is not reset when a rooted path segment (e.g., r'\foo') is encountered. IF a segment is on a different drive or is an absolute path, all previous segments are ignored and the drive is reset. 
