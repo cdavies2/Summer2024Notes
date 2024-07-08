@@ -15,7 +15,7 @@
   * path="/home/user/Desktop/file.txt"
   * start="/home/User"
   * relative_path=os.path.relpath(path, start) #this computes the relative file path to the given path from the given start directory.
-* os.listdir(path='.')-return a list containing the names of the entries in the directory given by path. The list is in arbitrary orfer, and doesn't include the special entries '.' and '..'
+* os.listdir(path='.')-return a list containing the names of the entries in the directory given by path. The list is in arbitrary order, and doesn't include the special entries '.' and '..'
   * Example
   * path="C://Users//Vanshi//Desktop//gfg"
   * dir_list=os.listdir(path)
