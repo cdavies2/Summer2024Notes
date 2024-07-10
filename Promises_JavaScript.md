@@ -111,3 +111,70 @@
     * .catch((e) => downloadFallbackData(url)) // returns a promise
     * .then((v) => processDataInWorker(v)); // returns a promise
 * }
+# Await
+* The await operator is used to wait for a Promise and get its fulfillment value. It can only be used inside an async function or at the top level of a module.
+## Awaiting a Promise to be Fulfilled
+* If a Promise is passed to an await expression, it waits for the Promise to be fulfilled and returns the fulfilled value.
+* function resolveAfter2Seconds(x) {
+  * return new Promise((resolve) => {
+    * setTimeout(() => {
+      * resolve(x);
+    * }, 2000);
+  * });
+* }
+
+* async function f1() {
+  * const x = await resolveAfter2Seconds(10);
+  * console.log(x); // 10
+* }
+* f1();
+## Conversion to Promise
+* If the value is not a Promise, await converts the value to a resolved Promise, and waits for it. The awaited value's identity doesn't change as long as it doesn't have a then property that's callable.
+* async function f3() {
+  * const y = await 20;
+  * console.log(y); // 20
+
+  * const obj = {};
+  * console.log((await obj) === obj); // true
+* }
+* f3();
+## Handling Rejected Promises
+* If the Promise is rejected, the rejected value is thrown.
+* async function f4() {
+  * try {
+    * const z = await Promise.reject(30);
+  * } catch (e) {
+    * console.error(e); // 30
+  * }
+* }
+* f4();
+* You can handle rejected promises without a try block by chaining a catch() handler before awaiting the promise. This is built on the assumption that promisedFunction() never synchronously throws an error, but always returns a rejected promise. This is the case for most properly-designed promise-based functions. However, if promisedFunction() does throw an error synchronously, the error won't be caught by the catch() handler. In this case, the try...catch statement is necessary.
+
+## Control Flow Effects of Await
+* When an await is encountered in code (either in an async function or in a module) the awaited expression is executed, while all code that depends on the expression's value is pushed into the microtask queue. The main thread is then freed for the next task in the event loop
+* An await handler's existence means that code will take one extra tick to complete, so make sure to use await only when necessary (to unwrap promises into their values).
+* Other microtasks can execute before the async function resumes. This example uses queueMicrotask() to demonstrate how the microtask queue is processed when each await expression is encountered.
+* let i = 0;
+* queueMicrotask(function test() {
+   * i++;
+   * console.log("microtask", i);
+   * if (i < 3) {
+    * queueMicrotask(test);
+   * }
+* });
+* (async () => {
+  * console.log("async function start");
+   * for (let i = 1; i < 3; i++) {
+    * await null;
+    * console.log("async function resume", i);
+  * }
+  * await null;
+   * console.log("async function end");
+* })();
+
+* queueMicrotask(() => {
+   * console.log("queueMicrotask() after calling async function");
+* });
+
+ * console.log("script sync part end");
+* In the above example, the test() function is always called before the async function resumes, so the microtasks they each schedule are always executed in an intertwined fashion. However, because both await and queueMicrotask() schedule microtasks, the order of execution is always based on the order of scheduling. As such, the "queueMicrotask() after calling async function" log happens after the async function resumes for the first time. 
