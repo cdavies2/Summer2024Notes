@@ -109,5 +109,42 @@ for event in replicate.stream(
 ):
     print(str(event), end="")
 ```
+* Source: https://replicate.com/blog/run-llama-3-with-an-api?input=nodejs#running-llama-3-with-javascript
 # Falcon Models
-* 
+* Falcon LLM is a generative large language model from the Technology Innovation Institute (TII).
+* Falcon2-11B is an 11B parameters causal decoder-only model built by TII and trained over 5,000B tokens of RefinedWeb enhanced with curated corpora. It is made available under the TII Falcon License 2.0.
+* It is a raw, pretrained model, which should be further finetuned for most usecases.
+## How to Get Started with the Model
+```
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import transformers
+import torch
+
+model = "tiiuae/falcon-11B"
+
+tokenizer = AutoTokenizer.from_pretrained(model)
+pipeline = transformers.pipeline(
+    "text-generation",
+    model=model,
+    tokenizer=tokenizer,
+    torch_dtype=torch.bfloat16,
+    device_map="auto",
+)
+sequences = pipeline(
+   "Can you explain the concepts of Quantum Computing?",
+    max_length=200,
+    do_sample=True,
+    top_k=10,
+    num_return_sequences=1,
+    eos_token_id=tokenizer.eos_token_id,
+)
+for seq in sequences:
+    print(f"Result: {seq['generated_text']}")
+
+```
+## Training Details
+* Falcon2-11B was trained over 5,000B tokens of RefinedWeb, a high-quality filtered and deduplicated web dataset which was enhanced with curated corpora.
+* Overall, the data sources included RefinedWeb-English, Refined Web-Europe (cs, de, es, fr, it, nl, sv), high quality technical data, code data, and conversational data extracted from public sources.
+## Model Architecture and Objective
+* Falcon2-11B is a causal decoder-only model trained on a causal language modeling task (i.e., predict the next token).
+* Source: https://huggingface.co/tiiuae/falcon-11B
